@@ -1,6 +1,11 @@
 ## Comandos:
 
 npm install react-router-dom
+npm install axios
+npm install bootstrap react-bootstrap
+
+https://blog.rocketseat.com.br/reactjs-autenticacao/
+https://react-bootstrap.github.io/getting-started/introduction/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

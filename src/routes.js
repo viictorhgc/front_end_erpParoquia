@@ -1,0 +1,40 @@
+import React from "react";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import Login from './pages/Pessoa/Login'
+import { isAuthenticated } from "./services/auth";
+import Pessoa from './pages/Pessoa/Cadastrar'
+import Dashboard from './pages/Dashboard'
+import Menu from './components/Menu'
+import Logout from './pages/Pessoa/Logout'
+
+const PrivateRoute = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      isAuthenticated() ? (
+        <Component {...props} />
+      ) : (
+        <Redirect to={{ pathname: "/", state: { from: props.location } }} />
+      )
+    }
+  />
+);
+
+const Routes = () => (  
+  
+  <BrowserRouter>
+    <Menu/>
+    <Switch>
+      <Route exact path="/"  component={ isAuthenticated () ? Dashboard : Login} />
+      <Route exact path="/login" component={Login} />
+      <Route path="/dashboard" component={Dashboard} />
+      <Route path="/pessoa" component={Pessoa} />
+      <Route path="/Logout" component={Logout} />
+      <PrivateRoute path="/app" component={() => <h1>App</h1>} />
+      <Route path="*" component={() => <h1>Todos os caminhos levam a Roma, menos este aqui...</h1>} />
+    </Switch>
+  </BrowserRouter>
+
+);
+
+export default Routes;
