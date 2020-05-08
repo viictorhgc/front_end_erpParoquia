@@ -9,10 +9,11 @@ export default function Menu() {
 
         <Navbar bg="dark" variant="dark" className="justify-content-between">
             <Container>
-                <Link to="/"><Navbar.Brand href="#home">ERP - Paroquia</Navbar.Brand></Link>
+                <Link to="/"><Navbar.Brand >ERP - Paroquia</Navbar.Brand></Link>
                 <Navbar.Toggle />
                 <Nav className="mr-auto">
                     <Link to="pessoa"><Navbar.Text >Pessoa</Navbar.Text></Link>
+                    <Link to="dizimo"><Navbar.Text >Dizimo</Navbar.Text></Link>
                 </Nav>
                 {isAuthenticated() &&
 

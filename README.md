@@ -1,8 +1,16 @@
 ## Comandos:
 
 npm install react-router-dom
+
 npm install axios
+
 npm install bootstrap react-bootstrap
+
+npm install react-icons
+
+npm install redux
+
+npm install react-redux
 
 https://blog.rocketseat.com.br/reactjs-autenticacao/
 https://react-bootstrap.github.io/getting-started/introduction/

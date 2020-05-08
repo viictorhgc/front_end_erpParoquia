@@ -22,7 +22,7 @@ function Login(props) {
       setLoading(true)
       try {
         const response = await api.post("/autenticar", { email, senha });
-        login(response.data.accessToken,response.data.email);
+        login(response.data.idLogado,response.data.accessToken,response.data.email);
         logado = true;
       } catch (err) {
         alteraErro("Houve um problema com o login, verifique suas credenciais.")
