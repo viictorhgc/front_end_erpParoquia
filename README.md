@@ -12,6 +12,8 @@ npm install redux
 
 npm install react-redux
 
+https://github.com/ismaelnascimentoash/react-hooks-crud-api/blob/master/src/forms/AddUserForm.js
+
 https://blog.rocketseat.com.br/reactjs-autenticacao/
 https://react-bootstrap.github.io/getting-started/introduction/
 
