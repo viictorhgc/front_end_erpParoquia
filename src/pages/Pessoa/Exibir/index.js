@@ -13,29 +13,42 @@ export default function ExibirPessoas() {
 
 
     useEffect(() => {
+
+        async function loadApi(link) {
+            const response = await api.get(link)
+            setPessoas(response.data.items)
+            setLinks(response.data._links)
+            console.log(response.data)
+        }
+
         loadApi('pessoa')
     }, [])
 
-    async function loadApi(link) {
-        const response = await api.get(link)
-        setPessoas(response.data.items)
-        setLinks(response.data._links)
-        console.log(response.data)
-    }
+
 
     const handleBuscaPessoa = useCallback((e) => {
+       
         e.preventDefault();
         async function loadApi() {
             const response = await api.get('pessoa')
             setPessoas([response.data.items])
             console.log(response.data)
         }
+        setErro('')
         loadApi()
-    }, [pessoa])
+    }, [])
 
     function handleMudaPagina (link) {
+
+        async function loadApi(link) {
+            const response = await api.get(link)
+            setPessoas(response.data.items)
+            setLinks(response.data._links)
+            console.log(response.data)
+        }
         loadApi(link)
     } 
+
     return (
         <Container>
 

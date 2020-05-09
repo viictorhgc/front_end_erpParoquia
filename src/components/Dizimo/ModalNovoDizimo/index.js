@@ -10,28 +10,29 @@ const ModalNovoDizimo = props => {
     const handleNovoDizimo = useCallback((e) => {
         e.preventDefault()
         var fluxo_caixa = {};
-        fluxo_caixa.pagadorId = 2
+        fluxo_caixa.pagadorId = props.pessoa.id
         fluxo_caixa.receptorId = 1
         fluxo_caixa.receitaDespesaId = 1
         fluxo_caixa.valor = valorNovoDizimo
-        sendApi(fluxo_caixa)
-    }, [valorNovoDizimo,props.dizimos])
 
-    async function sendApi(fluxo_caixa) {
-        const response = await api.post('/fluxocaixa', fluxo_caixa)
-        var inserido = response.data
-        inserido = {...inserido,  Pagador : { nome : 'Victor Hugo'}};
-        inserido = {...inserido,  Receptor : { nome : 'Vitor'}};
-        console.log(inserido)
-        props.setDizimos([...props.dizimos, inserido])
-        props.setModalNovoDizimoShow(false)
-        try {
-           
-        } catch {
-            setErro("Ocorreu um erro ao registrar o dízimo.")
+        async function sendApi(fluxo_caixa) {
+            const response = await api.post('/fluxocaixa', fluxo_caixa)
+            var inserido = response.data
+            inserido = { ...inserido, Pagador: { nome: props.pessoa.nome} };
+            inserido = { ...inserido, Receptor: { nome: 'Vitor' } };
+            console.log(inserido)
+            props.setDizimos([...props.dizimos, inserido])
+            props.setModalNovoDizimoShow(false)
+            try {
+
+            } catch {
+                setErro("Ocorreu um erro ao registrar o dízimo.")
+            }
+            console.log(props.dizimos)
         }
-        console.log(props.dizimos)
-    }
+
+        sendApi(fluxo_caixa)
+    }, [valorNovoDizimo,props])
 
     return (
         <Modal show={props.modalNovoDizimoShow} onHide={() => props.setModalNovoDizimoShow(false)}>
@@ -39,7 +40,7 @@ const ModalNovoDizimo = props => {
                 <Modal.Title>Cadastro de dízimo</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-            {erro && <Alert variant='danger'>{erro}</Alert>}
+                {erro && <Alert variant='danger'>{erro}</Alert>}
                 <Form onSubmit={handleNovoDizimo}>
                     <Form.Group as={Row} controlId="formHorizontalNome">
                         <Form.Label column sm={4}>
@@ -58,7 +59,6 @@ const ModalNovoDizimo = props => {
                 <Button variant="secondary" onClick={() => props.setModalNovoDizimoShow(false)}>
                     Fechar
               </Button>
-
             </Modal.Footer>
         </Modal>
     )
