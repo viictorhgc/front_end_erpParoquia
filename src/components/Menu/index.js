@@ -14,6 +14,7 @@ export default function Menu() {
                 <Nav className="mr-auto">
                     <Link to="pessoa"><Navbar.Text >Pessoa</Navbar.Text></Link>
                     <Link to="dizimo"><Navbar.Text >Dizimo</Navbar.Text></Link>
+                    <Link to="tipofluxo"><Navbar.Text >Tipos de Fluxo</Navbar.Text></Link>
                 </Nav>
                 {isAuthenticated() &&
 

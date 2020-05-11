@@ -12,6 +12,7 @@ const TabelaDizimos = props => (
                     <th>Data Pagamento</th>
                     <th>Pagador</th>
                     <th>Funcionário Receptor</th>
+                    <th>Forma de Pagamento</th>
                     <th>Valor</th>
                     <th>Ações</th>
                 </tr>
@@ -23,6 +24,7 @@ const TabelaDizimos = props => (
                             <td>{dizimo.data_efetivacao}</td>
                             <td>{dizimo.Pagador.nome}</td>
                             <td>{dizimo.Receptor.nome}</td>
+                            <td>{dizimo.FormasPagamento.nome}</td>
                             <td>{dizimo.valor}</td>
                             <td>
                                 <Button onClick={() => props.editarDizimo(dizimo)} >

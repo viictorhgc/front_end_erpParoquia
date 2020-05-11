@@ -7,6 +7,7 @@ import PessoaCadastro from './pages/Pessoa/Cadastrar'
 import Dashboard from './pages/Dashboard'
 import Logout from './pages/Pessoa/Logout'
 import ExibirDizimos from './pages/Dizimo'
+import TipoFluxo from './pages/TipoFluxo/'
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -30,6 +31,7 @@ const Routes = () => (
       <Route path="/pessoa" component={Pessoa} />
       <Route path="/pessoa/cadastro" component={PessoaCadastro} />
       <Route path="/dizimo" component={ExibirDizimos} />
+      <Route path="/tipofluxo" component={TipoFluxo} />
       <Route path="/Logout" component={Logout} />
       <PrivateRoute path="/app" component={() => <h1>App</h1>} />
       <Route path="*" component={() => <h1>Todos os caminhos levam a Roma, menos este aqui...</h1>} />

@@ -12,7 +12,8 @@ const ModalNovoDizimo = props => {
         var fluxo_caixa = {};
         fluxo_caixa.pagadorId = props.pessoa.id
         fluxo_caixa.receptorId = 1
-        fluxo_caixa.receitaDespesaId = 1
+        fluxo_caixa.tipoFluxoId = 1
+        fluxo_caixa.formaPagamentoId =1
         fluxo_caixa.valor = valorNovoDizimo
 
         async function sendApi(fluxo_caixa) {
