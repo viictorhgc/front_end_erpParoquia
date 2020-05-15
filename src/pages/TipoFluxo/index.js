@@ -4,7 +4,7 @@ import api from '../../services/api';
 import TabelaTipoFluxo from '../../components/TipoFluxo/TabelaTipoFluxo'
 import ModalNovoTipoFluxo from '../../components/TipoFluxo/ModalNovoTipoFluxo'
 
-export default function ExibirDizimos() {
+export default function PageTipoFluxo() {
 
     const [tiposfluxo, setTiposfluxo] = useState([]);
     const [erro, setErro] = useState('');
@@ -30,7 +30,18 @@ export default function ExibirDizimos() {
     }
 
     const deletarTipoFluxo = tipoFluxo =>{
-        alert(tipoFluxo)
+        async function deletarApi(link) {
+            try {
+                const response = await api.delete(`${link}/${tipoFluxo.id}`)
+                setTiposfluxo(tiposfluxo.filter(function(fpg) { 
+                    return fpg.id !== tipoFluxo.id
+                }));
+                setErro('') 
+            } catch{
+                setErro('Erro ao apagar o registro!') 
+            }        
+        }       
+        deletarApi('tipofluxo')
     }
 
 

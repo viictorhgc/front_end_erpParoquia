@@ -7,7 +7,10 @@ import PessoaCadastro from './pages/Pessoa/Cadastrar'
 import Dashboard from './pages/Dashboard'
 import Logout from './pages/Pessoa/Logout'
 import ExibirDizimos from './pages/Dizimo'
-import TipoFluxo from './pages/TipoFluxo/'
+import PageTipoFluxo from './pages/TipoFluxo/'
+import PageFormaPagamento from './pages/FormaPagamento'
+import PagePastoral from "./pages/Pastoral";
+import PageCampanha from "./pages/Campanha";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -31,7 +34,10 @@ const Routes = () => (
       <Route path="/pessoa" component={Pessoa} />
       <Route path="/pessoa/cadastro" component={PessoaCadastro} />
       <Route path="/dizimo" component={ExibirDizimos} />
-      <Route path="/tipofluxo" component={TipoFluxo} />
+      <Route path="/tipofluxo" component={PageTipoFluxo} />
+      <Route path="/formaPagamento" component={PageFormaPagamento} />
+      <Route path="/campanha" component={PageCampanha} />
+      <Route path="/pastoral" component={PagePastoral} />
       <Route path="/Logout" component={Logout} />
       <PrivateRoute path="/app" component={() => <h1>App</h1>} />
       <Route path="*" component={() => <h1>Todos os caminhos levam a Roma, menos este aqui...</h1>} />
